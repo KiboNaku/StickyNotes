@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="center" minHeight="150.0" minWidth="200.0" stylesheets="@note.css"
+      xmlns="http://javafx.com/javafx/8.0.172-ea" fx:controller="sample.Controller">
+    <HBox styleClass="title-bar">
+        <HBox alignment="CENTER" layoutX="202.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity"
+              styleClass="title-button">
+            <Label onMouseClicked="#newNote" text="+"/>
+        </HBox>
+        <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+            <Label text="Note"/>
+        </HBox>
+        <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" styleClass="title-button"
+              HBox.hgrow="ALWAYS">
+            <Label onMouseClicked="#close" text="x"/>
+        </HBox>
+    </HBox>
+    <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+        <VBox.margin>
+            <Insets/>
+        </VBox.margin>
+        <TextArea prefHeight="200.0" prefWidth="200.0" styleClass="note-contents" wrapText="true">
+            <padding>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
+            </padding>
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </TextArea>
+    </VBox>
+</VBox>
