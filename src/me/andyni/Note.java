@@ -1,4 +1,4 @@
-package sample;
+package me.andyni;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,19 +18,16 @@ class Note {
     void openNewNote(double[] previousPos) {
         try {
             boolean isFirst = previousPos == null || previousPos.length < 2;
-            Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("note.fxml"));
             noteStage = new Stage();
             noteStage.initStyle(StageStyle.TRANSPARENT);
             noteStage.setTitle("Note");
 
-
-            //grab your root here
             root.setOnMousePressed(event -> {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             });
 
-            //move around here
             root.setOnMouseDragged(event -> {
                 noteStage.setX(event.getScreenX() - xOffset);
                 noteStage.setY(event.getScreenY() - yOffset);

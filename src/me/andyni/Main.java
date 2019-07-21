@@ -1,4 +1,4 @@
-package sample;
+package me.andyni;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

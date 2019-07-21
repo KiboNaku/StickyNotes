@@ -1,4 +1,4 @@
-package sample;
+package me.andyni;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
