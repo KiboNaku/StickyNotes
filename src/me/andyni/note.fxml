@@ -24,7 +24,8 @@
         <VBox.margin>
             <Insets/>
         </VBox.margin>
-        <TextArea prefHeight="200.0" prefWidth="200.0" styleClass="note-contents" wrapText="true">
+        <TextArea fx:id="noteContents" onKeyReleased="#updateText" prefHeight="200.0" prefWidth="200.0"
+                  styleClass="note-contents" wrapText="true">
             <padding>
                 <Insets bottom="4.0" left="4.0" right="4.0" top="4.0"/>
             </padding>
