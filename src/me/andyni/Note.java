@@ -14,6 +14,8 @@ import java.io.ObjectOutput;
 
 class Note extends Stage implements Externalizable {
 
+    private static final long serialVersionUID = 6L;
+
     private final static double X_OFFSET = 20;
     private final static double Y_OFFSET = 20;
 
@@ -68,6 +70,7 @@ class Note extends Stage implements Externalizable {
     }
 
     public boolean isEmpty() {
+        System.out.println("isempty: " + contents);
         return contents.isEmpty();
     }
 
@@ -80,8 +83,11 @@ class Note extends Stage implements Externalizable {
     }
 
     void setContents() {
+        System.out.println(this);
         TextArea textArea = (TextArea) getScene().lookup("#noteContents");
         contents = textArea.getText();
+        System.out.println("updating: " + contents);
+        System.out.println(isEmpty());
     }
 
     private void restoreContents() {

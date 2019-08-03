@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-public class Controller {
+public class NoteController {
 
     @FXML
     public void close(MouseEvent mouseEvent) {
@@ -21,6 +21,7 @@ public class Controller {
 
     public void updateText(KeyEvent listener) {
         TextArea textArea = (TextArea) listener.getSource();
+        System.out.println("Updating");
         ((Note) textArea.getScene().getWindow()).setContents();
     }
 }
