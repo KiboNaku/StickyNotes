@@ -18,6 +18,19 @@ public class Main extends Application {
         launch(args);
     }
 
+    static void newNote(Note srcNote) {
+        notes.newNote(srcNote);
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        try (ObjectOutputStream locFile = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(filePath)))) {
+            System.out.println("Saving NoteList to memory.");
+            locFile.writeObject(notes);
+        }
+    }
+
     private static void createNoteSaveFile() throws IOException {
         // create directory
         if (new File(dirName).mkdirs()) System.out.println("The notes directory has been create.");
@@ -25,10 +38,6 @@ public class Main extends Application {
         // create file
         if (new File(filePath).createNewFile()) System.out.println("Created the notes file");
         else System.out.println("No file create because already exists.");
-    }
-
-    public static NoteList getNotes() {
-        return notes;
     }
 
     @Override
@@ -47,15 +56,6 @@ public class Main extends Application {
             notes = new NoteList();
         }
 
-        if (!notes.openAll()) notes.newNote();
-    }
-
-    @Override
-    public void stop() throws Exception {
-        super.stop();
-        try (ObjectOutputStream locFile = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(filePath)))) {
-            System.out.println("Saving NoteList to memory.");
-            locFile.writeObject(notes);
-        }
+        if (!notes.showAll()) notes.newNote();
     }
 }

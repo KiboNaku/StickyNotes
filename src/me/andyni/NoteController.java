@@ -15,13 +15,12 @@ public class NoteController {
     }
 
     public void newNote(MouseEvent mouseEvent) {
-        Node source = (Node) mouseEvent.getSource();
-        Main.getNotes().newNote();
+        Note srcNote = (Note) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        Main.newNote(srcNote);
     }
 
     public void updateText(KeyEvent listener) {
         TextArea textArea = (TextArea) listener.getSource();
-        System.out.println("Updating");
         ((Note) textArea.getScene().getWindow()).setContents();
     }
 }

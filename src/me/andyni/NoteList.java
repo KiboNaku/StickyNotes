@@ -13,17 +13,17 @@ public class NoteList implements Externalizable {
 
     private List<Note> notes = new ArrayList<>();
 
-    public void newNote(Note sourceNote) {
+    void newNote(Note sourceNote) {
         Note note = new Note(sourceNote);
         notes.add(note);
         note.show();
     }
 
-    public void newNote() {
+    void newNote() {
         newNote(null);
     }
 
-    public boolean openAll() {
+    boolean showAll() {
         for (Note note : notes) {
             note.show();
         }

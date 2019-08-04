@@ -63,15 +63,19 @@ class Note extends Stage implements Externalizable {
         this(null);
     }
 
+    boolean isEmpty() {
+        return contents.isEmpty();
+    }
+
+    void setContents() {
+        TextArea textArea = (TextArea) getScene().lookup("#noteContents");
+        contents = textArea.getText();
+    }
+
     private void constructNote() {
         setWindowX();
         setWindowY();
         restoreContents();
-    }
-
-    public boolean isEmpty() {
-        System.out.println("isempty: " + contents);
-        return contents.isEmpty();
     }
 
     private void setWindowX() {
@@ -80,14 +84,6 @@ class Note extends Stage implements Externalizable {
 
     private void setWindowY() {
         setY(yPos);
-    }
-
-    void setContents() {
-        System.out.println(this);
-        TextArea textArea = (TextArea) getScene().lookup("#noteContents");
-        contents = textArea.getText();
-        System.out.println("updating: " + contents);
-        System.out.println(isEmpty());
     }
 
     private void restoreContents() {
@@ -103,7 +99,7 @@ class Note extends Stage implements Externalizable {
     }
 
     @Override
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+    public void readExternal(ObjectInput in) throws IOException {
         xPos = in.readDouble();
         yPos = in.readDouble();
         contents = in.readUTF();
